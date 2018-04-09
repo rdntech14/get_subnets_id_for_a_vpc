@@ -17,8 +17,12 @@ output "subnets_id" {
   value = ["${data.aws_subnet.subnets.*.id}"]
 }
 
-output "subnets_id_1" {
+output "subnets_id_1_as_list" {
   value = ["${data.aws_subnet.subnets.0.id}"]
+}
+
+output "subnets_id_1_as_string" {
+  value = "${element(data.aws_subnet.subnets.*.id,0)}"
 }
 
 output "subnets_count" {
